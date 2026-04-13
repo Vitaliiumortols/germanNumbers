@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>German Numbers Trainer</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>German Numbers Trainer</h1>
+
+    <div class="section">
+      <div class="range-head">
+        <span>Number Range</span>
+        <span id="rangeText">0 - 100</span>
+      </div>
+
+      <div class="slider-block">
+        <label for="minRange">From: <span id="minValue">0</span></label>
+        <input type="range" id="minRange" min="0" max="1000" step="1" value="0" />
+      </div>
+
+      <div class="slider-block">
+        <label for="maxRange">To: <span id="maxValue">100</span></label>
+        <input type="range" id="maxRange" min="0" max="1000" step="1" value="100" />
+      </div>
+    </div>
+
+    <div class="number-box" id="numberBox">—</div>
+
+    <div class="section">
+      <input
+        type="text"
+        id="answerInput"
+        placeholder="Type the number in German"
+        autocomplete="off"
+        disabled
+      />
+    </div>
+
+    <div class="char-buttons">
+      <button type="button" class="char-btn" data-char="ä">ä</button>
+      <button type="button" class="char-btn" data-char="ö">ö</button>
+      <button type="button" class="char-btn" data-char="ü">ü</button>
+      <button type="button" class="char-btn" data-char="ß">ß</button>
+    </div>
+
+    <div class="buttons">
+      <button id="toggleBtn">Start</button>
+      <button id="nextBtn" disabled>Next</button>
+    </div>
+
+    <p class="status" id="statusText">Loading numbers...</p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
