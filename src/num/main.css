@@ -177,34 +177,17 @@ button:disabled {
 
   .page-nav {
     position: static;
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
-    margin-bottom: 14px;
+    width: 100%;
+    margin: 0 0 14px 0;
   }
 
   .page-nav a {
+    display: block;
     width: 100%;
     text-align: center;
     padding: 12px 10px;
-    font-size: 16px;
-    border-radius: 16px;
-  }
-
-  .card {
-    padding: 24px;
-  }
-
-  h1 {
-    font-size: 30px;
-  }
-
-  .number-box {
-    font-size: 64px;
-  }
-
-  .buttons {
-    grid-template-columns: 1fr;
   }
 }
