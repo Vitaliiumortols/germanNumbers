@@ -176,3 +176,31 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .page-nav {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+  
+  .page-nav a {
+    padding: 12px 18px;
+    border-radius: 14px;
+    background: #d8e5ff;
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  
+  .page-nav a.active {
+    background: #2f6dea;
+    color: white;
+  }
+  
+  .page-nav a:hover {
+    background: #1f58d6;
+    color: white;
+  }

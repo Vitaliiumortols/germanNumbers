@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>German Time Trainer</title>
+  <link rel="stylesheet" href="style_time.css" />
+</head>
+
+<div class="info-modal" id="infoModal">
+  <div class="info-content">
+    <button class="close-info" id="closeInfoBtn" type="button">×</button>
+
+    <h2>How to write time</h2>
+
+    <p>You can write answers with or without <b>Es ist</b>.</p>
+
+    <ul>
+      <li><b>10:00</b> — zehn Uhr / Es ist zehn Uhr</li>
+      <li><b>10:02</b> — zwei nach zehn / zehn Uhr zwei</li>
+      <li><b>13:57</b> — drei vor zwei / dreizehn Uhr siebenundfünfzig</li>
+      <li><b>14:55</b> — fünf vor drei / kurz vor drei / gleich drei</li>
+      <li><b>05:45</b> — Viertel vor sechs / fünf Uhr fünfundvierzig</li>
+      <li><b>23:20</b> — zwanzig nach elf / dreiundzwanzig Uhr zwanzig</li>
+    </ul>
+
+    <p class="small-note">
+      The trainer accepts official 24-hour time and common spoken German time.
+    </p>
+  </div>
+</div>
+
+<body>
+  
+  <nav class="page-nav">
+    <a href="../num/main.html">Numbers</a>
+    <a href="../time/index_time.html" class="active">Time</a>
+  </nav>
+  <main class="time-page">
+    <section class="time-card">
+      <button class="info-btn" id="infoBtn" type="button" aria-label="Open information">
+        i
+      </button>
+      <div class="title-row">
+        <h1>German Time Trainer</h1>
+    
+      </div>
+      <p class="subtitle">Write the time in German</p>
+
+      <div class="clock" id="clockDisplay">15:25</div>
+
+      <div class="controls">
+        <button id="newTimeBtn">New time</button>
+      </div>
+
+      <div class="answer-box">
+        <input
+          type="text"
+          id="answerInput"
+          placeholder="Example: fünf vor halb vier"
+          autocomplete="off"
+        />
+        <button id="checkBtn">Check</button>
+      </div>
+
+      <p id="resultText" class="result"></p>
+      <p id="hintText" class="hint"></p>
+    </section>
+  </main>
+
+  <script src="script_time.js"></script>
+</body>
+</html>
