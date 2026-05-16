@@ -175,6 +175,20 @@
     .buttons {
       grid-template-columns: 1fr;
     }
+
+    .page-nav {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: calc(100% - 32px);
+      margin: 14px auto 0;
+    }
+  
+    .page-nav a {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   .page-nav {
