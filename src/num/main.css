@@ -150,44 +150,46 @@
   }
   
   @media (max-width: 900px) {
-    .card {
-      padding: 22px;
-    }
-  
-    h1 {
-      font-size: 28px;
-    }
-  
-    .number-box {
-      min-height: 150px;
-      font-size: 64px;
-    }
-  
-    input[type="text"] {
-      font-size: 18px;
-    }
-  
-    button {
-      font-size: 18px;
-      padding: 15px;
-    }
-  
-    .buttons {
-      grid-template-columns: 1fr;
-    }
-
     .page-nav {
       position: static;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
       width: calc(100% - 32px);
-      margin: 14px auto 0;
+      max-width: 520px;
+      margin: 16px auto 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
     }
   
     .page-nav a {
       width: 100%;
+      padding: 12px 10px;
       text-align: center;
+      font-size: 16px;
+      border-radius: 16px;
+    }
+  
+    .time-page {
+      min-height: auto;
+      padding: 10px 16px 28px;
+    }
+  
+    .time-card {
+      padding: 52px 18px 28px;
+    }
+  
+    h1 {
+      font-size: 34px;
+      line-height: 1.15;
+    }
+  
+    .clock {
+      font-size: 48px;
+      padding: 34px 14px;
+      letter-spacing: 2px;
+    }
+  
+    .answer-box {
+      grid-template-columns: 1fr;
     }
   }
 

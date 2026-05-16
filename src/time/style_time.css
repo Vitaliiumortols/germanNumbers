@@ -117,25 +117,49 @@ button:hover {
   color: #5f6b7a;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
+  .page-nav {
+    position: static;
+    width: calc(100% - 32px);
+    max-width: 520px;
+    margin: 16px auto 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .page-nav a {
+    width: 100%;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 16px;
+  }
+
+  .time-page {
+    min-height: auto;
+    padding: 10px 16px 28px;
+  }
+
   .time-card {
-    padding: 26px;
+    padding: 52px 18px 28px;
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 34px;
+    line-height: 1.15;
   }
 
   .clock {
-    font-size: 52px;
-    padding: 34px 18px;
+    font-size: 48px;
+    padding: 34px 14px;
+    letter-spacing: 2px;
   }
 
   .answer-box {
     grid-template-columns: 1fr;
   }
 }
-
 .page-nav {
   position: fixed;
   top: 24px;
