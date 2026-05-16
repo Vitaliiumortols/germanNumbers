@@ -181,13 +181,24 @@ button:disabled {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
     width: 100%;
-    margin: 0 0 14px 0;
+    margin-bottom: 14px;
   }
 
   .page-nav a {
-    display: block;
     width: 100%;
     text-align: center;
     padding: 12px 10px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .number-box {
+    font-size: 58px;
   }
 }
