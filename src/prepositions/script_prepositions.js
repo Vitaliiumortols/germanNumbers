@@ -35,16 +35,26 @@ function extractGender(questionStr = "") {
   return match[1];
 }
 
-async function loadData() {
-  try {
-    const res = await fetch("prepositions_data.json");
-    initialData = await res.json();
-    resetProgress();
-  } catch (err) {
-    feedbackText.textContent = "Помилка завантаження JSON!";
-    feedbackText.className = "feedback wrong";
+function preloadImages(data) {
+    data.forEach((item) => {
+      if (item.image) {
+        const img = new Image();
+        img.src = item.image;
+      }
+    });
   }
-}
+  
+  async function loadData() {
+    try {
+      const res = await fetch("prepositions_data.json");
+      initialData = await res.json();
+      preloadImages(initialData); // Браузер фоном кэширует все 29 картинок сразу
+      resetProgress();
+    } catch (err) {
+      feedbackText.textContent = "Помилка завантаження JSON!";
+      feedbackText.className = "feedback wrong";
+    }
+  }
 
 function resetProgress() {
   currentIndex = 0;
