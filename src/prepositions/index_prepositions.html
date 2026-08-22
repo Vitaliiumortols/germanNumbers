@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>German Prepositions Trainer</title>
+  <link rel="stylesheet" href="style_prepositions.css" />
+</head>
+<body>
+
+  <!-- Модальне вікно з підказками -->
+  <div class="info-modal" id="infoModal">
+    <div class="info-content">
+      <button class="close-info" id="closeInfoBtn" type="button">×</button>
+
+      <!-- Блок підказки для поточної картки -->
+      <div class="current-hint-box" id="currentHintBox">
+        <span class="hint-label">Підказка для цієї картки:</span>
+        <div class="hint-badges">
+          <span class="badge" id="modalCaseBadge">Dativ</span>
+          <span class="badge badge-secondary" id="modalGenderBadge">Maskulin (der)</span>
+        </div>
+      </div>
+
+      <h2>Таблиця відмінків та прийменників</h2>
+
+      <p><b>Зміна артиклів за родами:</b></p>
+      <div class="table-wrap">
+        <table class="grammar-table">
+          <thead>
+            <tr>
+              <th>Відмінок</th>
+              <th>Чоловічий (m)</th>
+              <th>Середній (n)</th>
+              <th>Жіночий (f)</th>
+              <th>Множина (pl)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Nominativ</b></td>
+              <td>der / ein</td>
+              <td>das / ein</td>
+              <td>die / eine</td>
+              <td>die / -</td>
+            </tr>
+            <tr>
+              <td><b>Akkusativ</b></td>
+              <td><span class="hl-akk">den / einen</span></td>
+              <td>das / ein</td>
+              <td>die / eine</td>
+              <td>die / -</td>
+            </tr>
+            <tr>
+              <td><b>Dativ</b></td>
+              <td><span class="hl-dat">dem / einem</span></td>
+              <td><span class="hl-dat">dem / einem</span></td>
+              <td><span class="hl-dat">der / einer</span></td>
+              <td><span class="hl-dat">den ...n</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top: 14px;"><b>Основні групи прийменників:</b></p>
+      <ul>
+        <li><b>Wechsel (Wo? $\rightarrow$ Dativ | Wohin? $\rightarrow$ Akkusativ):</b> in, an, auf, unter, über, vor, hinter, neben, zwischen.</li>
+        <li><b>Тільки Dativ:</b> aus, bei, mit, nach, seit, von, zu, gegenüber, ab, außer.</li>
+        <li><b>Тільки Akkusativ:</b> durch, für, gegen, ohne, um, bis, entlang.</li>
+        <li><b>Genitiv:</b> wegen, während, trotz, (an)statt.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Навігація -->
+  <nav class="page-nav">
+    <a href="../num/main.html">Numbers</a>
+    <a href="../time/index_time.html">Time</a>
+    <a href="index_prepositions.html" class="active">Prepositions</a>
+  </nav>
+
+  <main class="prep-page">
+    <div class="card-stage">
+      <section class="trainer-card" id="quizCard">
+        
+        <!-- Кнопки скидання та довідки -->
+        <div class="card-actions">
+          <button class="action-btn" id="resetBtn" type="button" title="Скинути прогрес" aria-label="Reset progress">↻</button>
+          <button class="action-btn info-btn" id="infoBtn" type="button" title="Таблиця відмінків" aria-label="Open hints">i</button>
+        </div>
+
+        <div class="card-header">
+          <span class="card-counter" id="cardCounter">1 / 20</span>
+        </div>
+
+        <p class="question-text" id="questionText">Wo ist der Garten? (das Haus)</p>
+
+        <!-- Зображення -->
+        <div class="image-box" id="imageBox">
+          <img id="cardImage" src="" alt="Preposition Illustration" />
+          <div class="image-placeholder" id="placeholder">🖼️ Зображення</div>
+        </div>
+
+        <!-- Речення з пропуском -->
+        <div class="sentence-box">
+          <p id="sentenceDisplay">Der Garten liegt <span class="gap-slot"></span> Haus.</p>
+        </div>
+
+        <p class="translation-text" id="translationDisplay"></p>
+
+        <div class="char-buttons">
+          <button type="button" class="char-btn" data-char="ä">ä</button>
+          <button type="button" class="char-btn" data-char="ö">ö</button>
+          <button type="button" class="char-btn" data-char="ü">ü</button>
+          <button type="button" class="char-btn" data-char="ß">ß</button>
+        </div>
+
+        <div class="answer-box">
+          <input
+            type="text"
+            id="answerInput"
+            placeholder="Введи прийменник..."
+            autocomplete="off"
+          />
+          <button id="checkBtn">Check</button>
+        </div>
+
+        <p id="feedbackText" class="feedback"></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="script_prepositions.js"></script>
+</body>
+</html>

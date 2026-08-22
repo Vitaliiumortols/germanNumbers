@@ -1,0 +1,441 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef4ff, #dfe8f5);
+    color: #142033;
+    overflow-x: hidden;
+  }
+  
+  /* Навигация */
+  .page-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+  }
+  
+  .page-nav a {
+    padding: 11px 16px;
+    border-radius: 14px;
+    background: #d8e5ff;
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.2s ease;
+  }
+  
+  .page-nav a.active,
+  .page-nav a:hover {
+    background: #2f6dea;
+    color: #ffffff;
+  }
+  
+  /* Страница и карточка */
+  .prep-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+  }
+  
+  .card-stage {
+    width: 100%;
+    max-width: 680px;
+    perspective: 1000px;
+  }
+  
+  .trainer-card {
+    position: relative;
+    width: 100%;
+    padding: 40px 34px 34px;
+    border-radius: 28px;
+    background: #ffffff;
+    box-shadow: 0 22px 55px rgba(20, 32, 51, 0.12);
+    text-align: center;
+    transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 0.4s ease, 
+                background-color 0.4s ease;
+  }
+  
+  /* Кнопки действий (Reset + Info) */
+  .card-actions {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+  
+  .action-btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #d8e5ff;
+    color: #1d4ed8;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+  
+  .action-btn:hover {
+    background: #c7d9ff;
+    transform: scale(1.06);
+  }
+  
+  /* Шапка карточки */
+  .card-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-right: 90px;
+  }
+  
+  .card-counter {
+    font-size: 15px;
+    font-weight: 700;
+    color: #64748b;
+  }
+  
+  .question-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #142033;
+    margin-bottom: 16px;
+  }
+  
+  .image-box {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* строго повторяет пропорции картинки без пустот */
+    height: auto;
+    margin: 14px 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #f7ede2; /* теплый кремовый оттенок под фон генерации */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* картинка мягко заполняет весь блок без полос */
+    display: block;
+  }
+  
+  .image-placeholder {
+    font-size: 16px;
+    color: #888;
+  }
+  
+  /* Текст предложения и перевод */
+  .sentence-box {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #142033;
+    line-height: 1.4;
+  }
+  
+  .gap-slot {
+    display: inline-block;
+    min-width: 60px;
+    height: 30px;
+    border-bottom: 3px solid #2f6dea;
+    margin: 0 6px;
+    vertical-align: middle;
+    background: rgba(47, 109, 234, 0.06);
+    border-radius: 4px 4px 0 0;
+    padding: 0 8px;
+  }
+  
+  .translation-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #64748b;
+    margin-bottom: 18px;
+    min-height: 22px;
+  }
+  
+  /* Спецсимволы */
+  .char-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .char-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #d8e5ff;
+    color: #1d4ed8;
+    transition: 0.15s;
+  }
+  
+  .char-btn:hover {
+    background: #c7d9ff;
+  }
+  
+  /* Поле ввода */
+  .answer-box {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  
+  .answer-box input {
+    width: 100%;
+    border: 2px solid #cfd8e6;
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-size: 20px;
+    outline: none;
+    transition: 0.2s;
+  }
+  
+  .answer-box input:focus {
+    border-color: #2f6dea;
+    box-shadow: 0 0 0 4px rgba(47, 109, 234, 0.12);
+  }
+  
+  button#checkBtn {
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    background: #2f6dea;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  button#checkBtn:hover {
+    background: #1f58d6;
+  }
+  
+  .feedback {
+    min-height: 24px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .feedback.correct {
+    color: #278447;
+  }
+  
+  .feedback.wrong {
+    color: #c23b32;
+  }
+  
+  /* Анимации смахивания и тряски */
+  .trainer-card.swipe-right {
+    transform: translateX(120%) rotate(15deg);
+    background-color: #d1fae5 !important;
+    opacity: 0;
+  }
+  
+  .trainer-card.swipe-left {
+    transform: translateX(-120%) rotate(-15deg);
+    background-color: #fee2e2 !important;
+    opacity: 0;
+  }
+  
+  .trainer-card.reset-position {
+    transition: none;
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-12px); }
+    40%, 80% { transform: translateX(12px); }
+  }
+  
+  .trainer-card.shake {
+    animation: shake 0.4s ease-in-out;
+    border: 2px solid #ef4444;
+  }
+  
+  /* Модальное окно подсказок */
+  .info-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(8, 20, 43, 0.45);
+    z-index: 100;
+  }
+  
+  .info-modal.open {
+    display: flex;
+  }
+  
+  .info-content {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 30px;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 22px 55px rgba(20, 32, 51, 0.22);
+    text-align: left;
+  }
+  
+  .close-info {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .close-info:hover {
+    background: #e2e8f0;
+  }
+  
+  /* Подсказки внутри модалки */
+  .current-hint-box {
+    background: #f1f5f9;
+    border-radius: 16px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .hint-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .hint-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .badge {
+    background: #071a3d;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  
+  .badge-secondary {
+    background: #e2e8f0;
+    color: #334155;
+  }
+  
+  .table-wrap {
+    overflow-x: auto;
+    margin: 12px 0;
+  }
+  
+  .grammar-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  
+  .grammar-table th, .grammar-table td {
+    border: 1px solid #e2e8f0;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  
+  .grammar-table th {
+    background: #f8fafc;
+  }
+  
+  .hl-akk {
+    color: #d97706;
+    font-weight: 700;
+  }
+  
+  .hl-dat {
+    color: #2563eb;
+    font-weight: 700;
+  }
+  
+  .info-content ul {
+    padding-left: 20px;
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  /* Адаптив для мобильных устройств */
+  @media (max-width: 900px) {
+    .page-nav {
+      position: static;
+      width: calc(100% - 32px);
+      max-width: 520px;
+      margin: 16px auto 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+    }
+  
+    .page-nav a {
+      width: 100%;
+      padding: 10px 4px;
+      text-align: center;
+      font-size: 14px;
+    }
+  
+    .prep-page {
+      padding: 10px 16px 28px;
+    }
+  
+    .trainer-card {
+      padding: 28px 18px;
+    }
+  
+    .answer-box {
+      grid-template-columns: 1fr;
+    }
+  }
